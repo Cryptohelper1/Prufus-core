@@ -1,0 +1,26 @@
+[Unit]
+Description=PRUFUS's distributed currency daemon
+After=network.target
+
+[Service]
+User=prufus
+Group=prufus
+
+Type=forking
+PIDFile=/var/lib/prufusd/prufusd.pid
+
+ExecStart=/usr/bin/prufusd -daemon -pid=/var/lib/prufusd/prufusd.pid \
+          -conf=/etc/prufus/prufus.conf -datadir=/var/lib/prufusd
+
+ExecStop=-/usr/bin/prufus-cli -conf=/etc/prufus/prufus.conf \
+         -datadir=/var/lib/prufusd stop
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target
