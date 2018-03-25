@@ -96,7 +96,7 @@ public:
         pchMessageStart[2] = 0xa3;
         pchMessageStart[3] = 0xe2;
         vAlertPubKey = ParseHex("042aaee5ca5468608d1df8a7a2d01ff1d4af66a8d35dd0e8900322b4fc427aceec5943be2876e61876079fd76cbdfb2784262aa4ec84a5cfeab9e6c605c9dd67a4");
-        nDefaultPort = 32457;
+        nDefaultPort = 12457;
         bnProofOfWorkLimit = ~uint256(0) >> 20; // FIX starting difficulty is 1 / 2^12
         nSubsidyHalvingInterval = 210000;
         nMaxReorganizationDepth = 100;
@@ -183,7 +183,7 @@ public:
         pchMessageStart[2] = 0xa8;
         pchMessageStart[3] = 0xc5;
         vAlertPubKey = ParseHex("04db7dab5e593c87aff87c77991a104830b612f2b791dd9d2292503959907b358f648bd525ba73e5fa22dc2234429a58da7e6014588dc1f5253749a7218b2a3ccf");
-        nDefaultPort = 24248;
+        nDefaultPort = 14248;
         nEnforceBlockUpgradeMajority = 51;
         nRejectBlockOutdatedMajority = 75;
         nToCheckBlockUpgradeMajority = 100;
@@ -264,7 +264,7 @@ public:
         genesis.nNonce = 12345;
 
         hashGenesisBlock = genesis.GetHash();
-        nDefaultPort = 51476;
+        nDefaultPort = 11476;
         //assert(hashGenesisBlock == uint256("0x4f023a2120d9127b21bbad01724fdb79b519f593f2a85b60d3d79160ec5f29df"));
 
         vFixedSeeds.clear(); //! Testnet mode doesn't have any fixed seeds.
@@ -295,7 +295,7 @@ public:
     {
         networkID = CBaseChainParams::UNITTEST;
         strNetworkID = "unittest";
-        nDefaultPort = 51478;
+        nDefaultPort = 11478;
         vFixedSeeds.clear(); //! Unit test mode doesn't have any fixed seeds.
         vSeeds.clear();      //! Unit test mode doesn't have any DNS seeds.
 
