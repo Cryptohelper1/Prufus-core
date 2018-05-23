@@ -117,7 +117,7 @@ public:
         pchMessageStart[2] = 0xa3;
         pchMessageStart[3] = 0xe2;
         vAlertPubKey = ParseHex("042aaee5ca5468608d1df8a7a2d01ff1d4af66a8d35dd0e8900322b4fc427aceec5943be2876e61876079fd76cbdfb2784262aa4ec84a5cfeab9e6c605c9dd67a4");
-        nDefaultPort = 12457;
+        nDefaultPort = 31001;		//12457 for safety swap
         bnProofOfWorkLimit = ~uint256(0) >> 20; // FIX starting difficulty is 1 / 2^12
         nSubsidyHalvingInterval = 210000;
         nMaxReorganizationDepth = 100;
@@ -133,7 +133,7 @@ public:
         nModifierUpdateBlock = 510;
         nMaxMoneyOut = 21000000 * COIN;
 
-        const char* pszTimestamp = "Stephen Hawking, science's brightest star, dies aged 76";
+        const char* pszTimestamp = "Stephen Hawking, science's brightest star, His knowledge never dies";
         CMutableTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
@@ -159,11 +159,11 @@ public:
         	assert(genesis.hashMerkleRoot == uint256("0x1fbd576f57ed6765eac3c705721ac1a773bacec3ae4874fd8ec64bc8ca862db6"));
 	}
 
-        vSeeds.push_back(CDNSSeedData("prufus one", "139.99.105.67"));
-        vSeeds.push_back(CDNSSeedData("prufus two", "159.89.186.157"));
+        //vSeeds.push_back(CDNSSeedData("prufus one", "139.99.105.67"));
+        //vSeeds.push_back(CDNSSeedData("prufus two", "159.89.186.157"));
 
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 33);
-        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 91);
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 55);
+        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 137);
         base58Prefixes[SECRET_KEY] = std::vector<unsigned char>(1, 173);
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x02)(0x24)(0x33)(0x24).convert_to_container<std::vector<unsigned char> >();
         base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x02)(0x21)(0x25)(0x32).convert_to_container<std::vector<unsigned char> >();
@@ -210,7 +210,7 @@ public:
         pchMessageStart[2] = 0xa8;
         pchMessageStart[3] = 0xc5;
         vAlertPubKey = ParseHex("04db7dab5e593c87aff87c77991a104830b612f2b791dd9d2292503959907b358f648bd525ba73e5fa22dc2234429a58da7e6014588dc1f5253749a7218b2a3ccf");
-        nDefaultPort = 14248;
+        nDefaultPort = 14249;
         nEnforceBlockUpgradeMajority = 51;
         nRejectBlockOutdatedMajority = 75;
         nToCheckBlockUpgradeMajority = 100;
