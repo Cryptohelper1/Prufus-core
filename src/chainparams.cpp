@@ -29,6 +29,27 @@ struct SeedSpec6 {
  * Main network
  */
 
+void MineGenesisBlock(CBlock &genesis)
+{
+	uint256 besthash = uint256();
+	int n=0;
+	uint256 hashTarget = uint256().SetCompact(genesis.nBits);
+while (uint256(genesis.GetHash()) > hashTarget) {
+	uint256 c = uint256(genesis.GetHash());
+
+	if(c < besthash || n==0)
+	{
+		besthash = c;
+		n=1;
+		printf("%s %s %s\n",genesis.GetHash().GetHex().c_str(),hashTarget.GetHex().c_str(),besthash.GetHex().c_str());
+	}
+		++genesis.nNonce;
+		if (genesis.nNonce == 0) { ++genesis.nTime; }
+	}
+//printf("HASH IS: %s\n", UintToArith256(genesis.GetHash()).ToString().c_str());
+	printf("Converting genesis hash to string: %s\n",genesis.ToString().c_str()); 
+}
+
 //! Convert the pnSeeds6 array into usable address objects.
 static void convertSeed6(std::vector<CAddress>& vSeedsOut, const SeedSpec6* data, unsigned int count)
 {
@@ -127,10 +148,16 @@ public:
         genesis.nBits = 0x1e0ffff0;
         genesis.nNonce = 590182;
 
+	startNewChain = false;
+	if(startNewChain == true) { MineGenesisBlock(genesis); }
+
         hashGenesisBlock = genesis.GetHash();
+
+	if(!startNewChain){
 
         assert(hashGenesisBlock == uint256("0x00000427198483f7776f4a6b1e4afaeaa9adeed6ceaf0d137747080f6665a442"));
         assert(genesis.hashMerkleRoot == uint256("0x1fbd576f57ed6765eac3c705721ac1a773bacec3ae4874fd8ec64bc8ca862db6"));
+	}
 
         vSeeds.push_back(CDNSSeedData("prufus one", "139.99.105.67"));
         vSeeds.push_back(CDNSSeedData("prufus two", "159.89.186.157"));
