@@ -75,7 +75,11 @@ static void convertSeed6(std::vector<CAddress>& vSeedsOut, const SeedSpec6* data
 
 static Checkpoints::MapCheckpoints mapCheckpoints =
     boost::assign::map_list_of
-    (0, uint256("0x00000794bd15081527d28d5073cc8c3e5773bc0301a9ff8f6a25e2c40e6ff78b"));
+    (0, uint256("0x00000794bd15081527d28d5073cc8c3e5773bc0301a9ff8f6a25e2c40e6ff78b"))
+    (50, uint256("0x000005b4af867ef5cd628a89c39d072e75cbc31fe12ec7cda5f0fe4480e64c92"))
+    (100, uint256("0x0000040f52213032943a47c8ae395e9da1b668ea8c83365e9433b04262b01265"))
+    (114, uint256("0x000005f70a40be7edd86131f42335b6a6dabd5f61c1904dc708d9264bcc61e3d"));
+
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
     1527091355, // * UNIX timestamp of last checkpoint block
@@ -160,7 +164,8 @@ public:
 	}
 
         vSeeds.push_back(CDNSSeedData("prufus one","118.69.37.45"));
-        //vSeeds.push_back(CDNSSeedData("prufus two", "159.89.186.157"));
+        vSeeds.push_back(CDNSSeedData("prufus two","45.76.228.106"));
+	vSeeds.push_back(CDNSSeedData("prufus two","45.76.29.178"));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 55);	//Start at P
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 15);	//Start at 7
