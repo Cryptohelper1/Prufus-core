@@ -78,14 +78,15 @@ static Checkpoints::MapCheckpoints mapCheckpoints =
     (0, uint256("0x00000794bd15081527d28d5073cc8c3e5773bc0301a9ff8f6a25e2c40e6ff78b"))
     (50, uint256("0x000005b4af867ef5cd628a89c39d072e75cbc31fe12ec7cda5f0fe4480e64c92"))
     (100, uint256("0x0000040f52213032943a47c8ae395e9da1b668ea8c83365e9433b04262b01265"))
-    (114, uint256("0x000005f70a40be7edd86131f42335b6a6dabd5f61c1904dc708d9264bcc61e3d"));
+    (114, uint256("0x000005f70a40be7edd86131f42335b6a6dabd5f61c1904dc708d9264bcc61e3d"))
+    (1625, uint256("0x9ccba1dcb6e587d4bb1a4134fbbeccaf64bee367428bb1d85e33df6638ba2dc9"));
 
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
-    1527091355, // * UNIX timestamp of last checkpoint block
-    1,    // * total number of transactions between genesis and last checkpoint
+    1528074123, // * UNIX timestamp of last checkpoint block
+    0,    // * total number of transactions between genesis and last checkpoint
                 //   (the tx=... number in the SetBestChain debug.log lines)
-    100        // * estimated number of transactions per day after checkpoint
+    0        // * estimated number of transactions per day after checkpoint
 };
 
 static Checkpoints::MapCheckpoints mapCheckpointsTestnet =
@@ -121,7 +122,7 @@ public:
         pchMessageStart[2] = 0xa3;
         pchMessageStart[3] = 0xe2;
         vAlertPubKey = ParseHex("042aaee5ca5468608d1df8a7a2d01ff1d4af66a8d35dd0e8900322b4fc427aceec5943be2876e61876079fd76cbdfb2784262aa4ec84a5cfeab9e6c605c9dd67a4");
-        nDefaultPort = 31001;		//12457 for safety swap
+        nDefaultPort = 12457;		//12457 for safety swap
         bnProofOfWorkLimit = ~uint256(0) >> 20; // FIX starting difficulty is 1 / 2^12
         nSubsidyHalvingInterval = 210000;
         nMaxReorganizationDepth = 100;
@@ -131,7 +132,7 @@ public:
         nMinerThreads = 0;
         nTargetTimespan = 1 * 60; // FIX: 60 seconds
         nTargetSpacing = 1 * 60;  // FIX: 60 seconds
-        nLastPOWBlock = 515;
+        nLastPOWBlock = 3200;
         nMaturity = 30;
         nMasternodeCountDrift = 20;
         nModifierUpdateBlock = 510;
@@ -148,9 +149,9 @@ public:
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
-        genesis.nTime = 1527091355;	///23/05/2018
+        genesis.nTime = 1528074123;	///06/06/2018
         genesis.nBits = 0x1e0ffff0;
-        genesis.nNonce = 676811;
+        genesis.nNonce = 1166870;
 
 	bool startNewChain = false;
 	if(startNewChain == true) { MineGenesisBlock(genesis); }
@@ -159,18 +160,18 @@ public:
 
 	if(!startNewChain){
 
-        	assert(hashGenesisBlock == uint256("0x00000794bd15081527d28d5073cc8c3e5773bc0301a9ff8f6a25e2c40e6ff78b"));
+        	assert(hashGenesisBlock == uint256("0x000006035306076f7e5f1e41022aedacbf282d2f266c5e5d5c7e2fa78804b9ec"));
         	assert(genesis.hashMerkleRoot == uint256("0xf54ee24c17c4edeb780e300411ca689c58b09e41b6b4c357ef1e65faa34a4d39"));
 	}
 
         vSeeds.push_back(CDNSSeedData("prufus one","118.69.37.45"));
         vSeeds.push_back(CDNSSeedData("prufus two","45.76.228.106"));
-	vSeeds.push_back(CDNSSeedData("prufus two","45.76.29.178"));
+	vSeeds.push_back(CDNSSeedData("prufus three","45.76.29.178"));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 55);	//Start at P
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 15);	//Start at 7
         base58Prefixes[SECRET_KEY] = std::vector<unsigned char>(1, 174);
-        base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x02)(0x24)(0x33)(0x24).convert_to_container<std::vector<unsigned char> >();
+        base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x02)(0x24)(0x33)		(0x24).convert_to_container<std::vector<unsigned char> >();
         base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x02)(0x21)(0x25)(0x32).convert_to_container<std::vector<unsigned char> >();
         //  BIP44 coin type is from https://github.com/satoshilabs/slips/blob/master/slip-0044.md
         base58Prefixes[EXT_COIN_TYPE] = boost::assign::list_of(0x90)(0x32)(0x00)(0x83).convert_to_container<std::vector<unsigned char> >();
@@ -190,7 +191,7 @@ public:
         nPoolMaxTransactions = 3;
         strSporkKey = "04db7dab5e593c87aff87c77991a104830b612f2b791dd9d2292503959907b358f648bd525ba73e5fa22dc2234429a58da7e6014588dc1f5253749a7218b2a3ccf";
         strObfuscationPoolDummyAddress = "ETVDjeQDvFXz2gmip9NDN3Qcm295h4Kh7o";
-        nStartMasternodePayments = 1527141169;	//Start payment MN from 24/05/2018
+        nStartMasternodePayments = 1528074123;	//Start payment MN from 24/05/2018
     }
 
     const Checkpoints::CCheckpointData& Checkpoints() const
