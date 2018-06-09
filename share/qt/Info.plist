@@ -17,22 +17,22 @@
   <string>APPL</string>
 
   <key>CFBundleGetInfoString</key>
-  <string>2.0.1, Copyright © 2009-2018 The Bitcoin Core developers, 2014-2018 The Dash Core developers, 2015-2018 The Prufus developers</string>
+  <string>2.0.2, Copyright © 2009-2018 The Bitcoin Core developers, 2014-2018 The Dash Core developers, 2015-2018 The Prufus developers</string>
 
   <key>CFBundleShortVersionString</key>
-  <string>2.0.1</string>
+  <string>2.0.2</string>
 
   <key>CFBundleVersion</key>
-  <string>2.0.1</string>
+  <string>2.0.2</string>
 
   <key>CFBundleSignature</key>
   <string>????</string>
 
   <key>CFBundleExecutable</key>
-  <string>Prufus-Qt</string>
+  <string>Plexus-Qt</string>
 
   <key>CFBundleIdentifier</key>
-  <string>io.prufus.Prufus-Qt</string>
+  <string>io.prufus.Plexus-Qt</string>
 
   <key>CFBundleURLTypes</key>
   <array>
