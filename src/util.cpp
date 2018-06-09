@@ -105,7 +105,7 @@ std::string to_internal(const std::string&);
 } // namespace boost
 
 using namespace std;
-
+//
 //Plexus only features
 bool fMasterNode = false;
 string strMasterNodePrivKey = "";
