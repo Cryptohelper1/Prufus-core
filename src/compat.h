@@ -7,7 +7,7 @@
 #define BITCOIN_COMPAT_H
 
 #if defined(HAVE_CONFIG_H)
-#include "config/prufus-config.h"
+#include "config/plexus-config.h"
 #endif
 
 #ifdef WIN32

@@ -29,10 +29,10 @@
   <string>????</string>
 
   <key>CFBundleExecutable</key>
-  <string>Prufus-Qt</string>
+  <string>Plexus-Qt</string>
 
   <key>CFBundleIdentifier</key>
-  <string>io.prufus.Prufus-Qt</string>
+  <string>io.prufus.Plexus-Qt</string>
 
   <key>CFBundleURLTypes</key>
   <array>

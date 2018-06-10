@@ -64,15 +64,15 @@ bin_PROGRAMS =
 TESTS =
 
 if BUILD_BITCOIND
-  bin_PROGRAMS += prufusd
+  bin_PROGRAMS += plexusd
 endif
 
 if BUILD_BITCOIN_UTILS
-  bin_PROGRAMS += prufus-cli prufus-tx
+  bin_PROGRAMS += plexus-cli plexus-tx
 endif
 
 .PHONY: FORCE
-# prufus core #
+# plexus core #
 BITCOIN_CORE_H = \
   activemasternode.h \
   addrman.h \
@@ -180,7 +180,7 @@ obj/build.h: FORCE
 	  $(abs_top_srcdir)
 libbitcoin_util_a-clientversion.$(OBJEXT): obj/build.h
 
-# server: shared between prufusd and prufus-qt
+# server: shared between plexusd and plexus-qt
 libbitcoin_server_a_CPPFLAGS = $(BITCOIN_INCLUDES) $(MINIUPNPC_CPPFLAGS)
 libbitcoin_server_a_SOURCES = \
   addrman.cpp \
@@ -224,7 +224,7 @@ libbitcoin_zmq_a_SOURCES = \
   zmq/zmqpublishnotifier.cpp
 endif
 
-# wallet: shared between prufusd and prufus-qt, but only linked
+# wallet: shared between plexusd and plexus-qt, but only linked
 # when wallet enabled
 
 libbitcoin_wallet_a_CFLAGS = -fPIC
@@ -305,7 +305,7 @@ univalue_libbitcoin_univalue_a_SOURCES = \
   univalue/univalue_escapes.h \
   univalue/univalue.h
 
-# common: shared between prufusd, and prufus-qt and non-server tools
+# common: shared between plexusd, and plexus-qt and non-server tools
 libbitcoin_common_a_CPPFLAGS = $(BITCOIN_INCLUDES)
 libbitcoin_common_a_SOURCES = \
   allocators.cpp \
@@ -361,7 +361,7 @@ libbitcoin_util_a_SOURCES += compat/glibc_compat.cpp
 libbitcoin_util_a_SOURCES += compat/glibcxx_compat.cpp
 endif
 
-# cli: shared between prufus-cli and prufus-qt
+# cli: shared between plexus-cli and plexus-qt
 libbitcoin_cli_a_CPPFLAGS = $(BITCOIN_INCLUDES)
 libbitcoin_cli_a_SOURCES = \
   rpcclient.cpp \
@@ -371,7 +371,7 @@ nodist_libbitcoin_util_a_SOURCES = $(srcdir)/obj/build.h
 #
 
 # bitcoind binary #
-prufusd_LDADD = \
+plexusd_LDADD = \
   $(LIBBITCOIN_SERVER) \
   $(LIBBITCOIN_COMMON) \
   $(LIBBITCOIN_UNIVALUE) \
@@ -382,40 +382,40 @@ prufusd_LDADD = \
   $(LIBSECP256K1)
 
 if ENABLE_ZMQ
-prufusd_LDADD += $(LIBBITCOIN_ZMQ) $(ZMQ_LIBS)
+plexusd_LDADD += $(LIBBITCOIN_ZMQ) $(ZMQ_LIBS)
 endif
 
 if ENABLE_WALLET
-prufusd_LDADD += libbitcoin_wallet.a
+plexusd_LDADD += libbitcoin_wallet.a
 endif
-prufusd_SOURCES = prufusd.cpp
+plexusd_SOURCES = plexusd.cpp
 #
 
 if TARGET_WINDOWS
-prufusd_SOURCES += prufusd-res.rc
+plexusd_SOURCES += plexusd-res.rc
 endif
 
-prufusd_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS)
-prufusd_CPPFLAGS = $(BITCOIN_INCLUDES)
-prufusd_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+plexusd_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS)
+plexusd_CPPFLAGS = $(BITCOIN_INCLUDES)
+plexusd_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 
-# prufus-cli binary #
-prufus_cli_LDADD = \
+# plexus-cli binary #
+plexus_cli_LDADD = \
   $(LIBBITCOIN_CLI) \
   $(LIBBITCOIN_UTIL) \
   $(BOOST_LIBS) \
   $(SSL_LIBS) \
   $(CRYPTO_LIBS)
 
-prufus_cli_SOURCES = \
-  prufus-cli.cpp
+plexus_cli_SOURCES = \
+  plexus-cli.cpp
 
-prufus_cli_CPPFLAGS = $(BITCOIN_INCLUDES)
+plexus_cli_CPPFLAGS = $(BITCOIN_INCLUDES)
 #
 
-# prufus-tx binary #
-prufus_tx_LDADD = \
+# plexus-tx binary #
+plexus_tx_LDADD = \
   $(LIBBITCOIN_UNIVALUE) \
   $(LIBBITCOIN_COMMON) \
   $(LIBBITCOIN_UTIL) \
@@ -424,15 +424,15 @@ prufus_tx_LDADD = \
   $(BOOST_LIBS) \
   $(CRYPTO_LIBS)
 
-prufus_tx_SOURCES = prufus-tx.cpp
-prufus_tx_CPPFLAGS = $(BITCOIN_INCLUDES)
+plexus_tx_SOURCES = plexus-tx.cpp
+plexus_tx_CPPFLAGS = $(BITCOIN_INCLUDES)
 #
-prufus_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+plexus_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-prufus_cli_SOURCES += prufus-cli-res.rc
+plexus_cli_SOURCES += plexus-cli-res.rc
 endif
-prufus_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+plexus_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if BUILD_BITCOIN_LIBS
 include_HEADERS = script/bitcoinconsensus.h

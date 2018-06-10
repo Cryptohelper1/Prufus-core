@@ -1,7 +1,7 @@
 // Copyright (c) 2011-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
 // Copyright (c) 2015-2017 The PIVX developers
-// Copyright (c) 2017 The Prufus developers
+// Copyright (c) 2017 The Plexus developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -20,18 +20,18 @@ BitcoinUnits::BitcoinUnits(QObject* parent) : QAbstractListModel(parent),
 QList<BitcoinUnits::Unit> BitcoinUnits::availableUnits()
 {
     QList<BitcoinUnits::Unit> unitlist;
-    unitlist.append(Prufus);
-    unitlist.append(mPrufus);
-    unitlist.append(uPrufus);
+    unitlist.append(Plexus);
+    unitlist.append(mPlexus);
+    unitlist.append(uPlexus);
     return unitlist;
 }
 
 bool BitcoinUnits::valid(int unit)
 {
     switch (unit) {
-    case Prufus:
-    case mPrufus:
-    case uPrufus:
+    case Plexus:
+    case mPlexus:
+    case uPlexus:
         return true;
     default:
         return false;
@@ -41,11 +41,11 @@ bool BitcoinUnits::valid(int unit)
 QString BitcoinUnits::id(int unit)
 {
     switch (unit) {
-    case Prufus:
+    case Plexus:
         return QString("prufus");
-    case mPrufus:
+    case mPlexus:
         return QString("mprufus");
-    case uPrufus:
+    case uPlexus:
         return QString::fromUtf8("uprufus");
     default:
         return QString("???");
@@ -56,23 +56,23 @@ QString BitcoinUnits::name(int unit)
 {
     if (Params().NetworkID() == CBaseChainParams::MAIN) {
         switch (unit) {
-        case Prufus:
-            return QString("Prufus");
-        case mPrufus:
-            return QString("mPrufus");
-        case uPrufus:
-            return QString::fromUtf8("μPrufus");
+        case Plexus:
+            return QString("Plexus");
+        case mPlexus:
+            return QString("mPlexus");
+        case uPlexus:
+            return QString::fromUtf8("μPlexus");
         default:
             return QString("???");
         }
     } else {
         switch (unit) {
-        case Prufus:
-            return QString("tPrufus");
-        case mPrufus:
-            return QString("mtPrufus");
-        case uPrufus:
-            return QString::fromUtf8("μtPrufus");
+        case Plexus:
+            return QString("tPlexus");
+        case mPlexus:
+            return QString("mtPlexus");
+        case uPlexus:
+            return QString::fromUtf8("μtPlexus");
         default:
             return QString("???");
         }
@@ -83,23 +83,23 @@ QString BitcoinUnits::description(int unit)
 {
     if (Params().NetworkID() == CBaseChainParams::MAIN) {
         switch (unit) {
-        case Prufus:
-            return QString("Prufus");
-        case mPrufus:
-            return QString("Milli-Prufus (1 / 1" THIN_SP_UTF8 "000)");
-        case uPrufus:
-            return QString("Micro-Prufus (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+        case Plexus:
+            return QString("Plexus");
+        case mPlexus:
+            return QString("Milli-Plexus (1 / 1" THIN_SP_UTF8 "000)");
+        case uPlexus:
+            return QString("Micro-Plexus (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
         default:
             return QString("???");
         }
     } else {
         switch (unit) {
-        case Prufus:
-            return QString("TestPrufuss");
-        case mPrufus:
-            return QString("Milli-TestPrufus (1 / 1" THIN_SP_UTF8 "000)");
-        case uPrufus:
-            return QString("Micro-TestPrufus (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+        case Plexus:
+            return QString("TestPlexuss");
+        case mPlexus:
+            return QString("Milli-TestPlexus (1 / 1" THIN_SP_UTF8 "000)");
+        case uPlexus:
+            return QString("Micro-TestPlexus (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
         default:
             return QString("???");
         }
@@ -109,11 +109,11 @@ QString BitcoinUnits::description(int unit)
 qint64 BitcoinUnits::factor(int unit)
 {
     switch (unit) {
-    case Prufus:
+    case Plexus:
         return 100000000;
-    case mPrufus:
+    case mPlexus:
         return 100000;
-    case uPrufus:
+    case uPlexus:
         return 100;
     default:
         return 100000000;
@@ -123,11 +123,11 @@ qint64 BitcoinUnits::factor(int unit)
 int BitcoinUnits::decimals(int unit)
 {
     switch (unit) {
-    case Prufus:
+    case Plexus:
         return 8;
-    case mPrufus:
+    case mPlexus:
         return 5;
-    case uPrufus:
+    case uPlexus:
         return 2;
     default:
         return 0;

@@ -7,7 +7,7 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #if defined(HAVE_CONFIG_H)
-#include "config/prufus-config.h"
+#include "config/plexus-config.h"
 #endif
 
 #include "net.h"
@@ -1094,7 +1094,7 @@ void ThreadDNSAddressSeed()
         MilliSleep(11 * 1000);
 
         LOCK(cs_vNodes);
-        if (vNodes.size() >= 2) {
+        if (vNodes.size() >= 8) {
             LogPrintf("P2P peers available. Skipped DNS seeding.\n");
             return;
         }

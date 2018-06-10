@@ -10,7 +10,7 @@ import operator
 import os
 import sys
 
-OUT_CPP="qt/prufusstrings.cpp"
+OUT_CPP="qt/plexusstrings.cpp"
 EMPTY=['""']
 
 def parse_po(text):
