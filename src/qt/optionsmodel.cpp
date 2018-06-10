@@ -1,12 +1,12 @@
 // Copyright (c) 2011-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
 // Copyright (c) 2015-2017 The PIVX developers
-// Copyright (c) 2017 The Prufus developers
+// Copyright (c) 2017 The Plexus developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #if defined(HAVE_CONFIG_H)
-#include "config/prufus-config.h"
+#include "config/plexus-config.h"
 #endif
 
 #include "optionsmodel.h"
@@ -62,7 +62,7 @@ void OptionsModel::Init()
 
     // Display
     if (!settings.contains("nDisplayUnit"))
-        settings.setValue("nDisplayUnit", BitcoinUnits::Prufus);
+        settings.setValue("nDisplayUnit", BitcoinUnits::Plexus);
     nDisplayUnit = settings.value("nDisplayUnit").toInt();
 
     if (!settings.contains("strThirdPartyTxUrls"))
@@ -76,11 +76,11 @@ void OptionsModel::Init()
     if (!settings.contains("nObfuscationRounds"))
         settings.setValue("nObfuscationRounds", 2);
 
-    if (!settings.contains("nAnonymizePrufusAmount"))
-        settings.setValue("nAnonymizePrufusAmount", 1000);
+    if (!settings.contains("nAnonymizePlexusAmount"))
+        settings.setValue("nAnonymizePlexusAmount", 1000);
 
     nObfuscationRounds = settings.value("nObfuscationRounds").toLongLong();
-    nAnonymizePrufusAmount = settings.value("nAnonymizePrufusAmount").toLongLong();
+    nAnonymizePlexusAmount = settings.value("nAnonymizePlexusAmount").toLongLong();
 
     if (!settings.contains("fShowMasternodesTab"))
         settings.setValue("fShowMasternodesTab", masternodeConfig.getCount());
@@ -147,8 +147,8 @@ void OptionsModel::Init()
 
     if (settings.contains("nObfuscationRounds"))
         SoftSetArg("-obfuscationrounds", settings.value("nObfuscationRounds").toString().toStdString());
-    if (settings.contains("nAnonymizePrufusAmount"))
-        SoftSetArg("-anonymizeprufusamount", settings.value("nAnonymizePrufusAmount").toString().toStdString());
+    if (settings.contains("nAnonymizePlexusAmount"))
+        SoftSetArg("-anonymizeprufusamount", settings.value("nAnonymizePlexusAmount").toString().toStdString());
 
     language = settings.value("language").toString();
 }
@@ -228,8 +228,8 @@ QVariant OptionsModel::data(const QModelIndex& index, int role) const
             return settings.value("nThreadsScriptVerif");
         case ObfuscationRounds:
             return QVariant(nObfuscationRounds);
-        case AnonymizePrufusAmount:
-            return QVariant(nAnonymizePrufusAmount);
+        case AnonymizePlexusAmount:
+            return QVariant(nAnonymizePlexusAmount);
         case Listen:
             return settings.value("fListen");
         default:
@@ -338,10 +338,10 @@ bool OptionsModel::setData(const QModelIndex& index, const QVariant& value, int 
             settings.setValue("nObfuscationRounds", nObfuscationRounds);
             emit obfuscationRoundsChanged(nObfuscationRounds);
             break;
-        case AnonymizePrufusAmount:
-            nAnonymizePrufusAmount = value.toInt();
-            settings.setValue("nAnonymizePrufusAmount", nAnonymizePrufusAmount);
-            emit anonymizePrufusAmountChanged(nAnonymizePrufusAmount);
+        case AnonymizePlexusAmount:
+            nAnonymizePlexusAmount = value.toInt();
+            settings.setValue("nAnonymizePlexusAmount", nAnonymizePlexusAmount);
+            emit anonymizePlexusAmountChanged(nAnonymizePlexusAmount);
             break;
         case CoinControlFeatures:
             fCoinControlFeatures = value.toBool();

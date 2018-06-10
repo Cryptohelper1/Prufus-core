@@ -6,7 +6,7 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #if defined(HAVE_CONFIG_H)
-#include "config/prufus-config.h"
+#include "config/plexus-config.h"
 #endif
 
 #include "addressbookpage.h"

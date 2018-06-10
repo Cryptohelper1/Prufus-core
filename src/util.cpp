@@ -7,7 +7,7 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #if defined(HAVE_CONFIG_H)
-#include "config/Plexus-config.h"
+#include "config/plexus-config.h"
 #endif
 
 #include "util.h"
@@ -114,7 +114,7 @@ bool fLiteMode = false;
 bool fEnableSwiftTX = true;
 int nSwiftTXDepth = 5;
 int nObfuscationRounds = 2;
-int nAnonymizePrufusAmount = 1000;
+int nAnonymizePlexusAmount = 1000;
 int nLiquidityProvider = 0;
 /** Spork enforcement enabled time */
 int64_t enforceMasternodePaymentsTime = 4085657524;
