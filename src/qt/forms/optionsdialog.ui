@@ -182,7 +182,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QSpinBox" name="anonymizePrufus">
+          <widget class="QSpinBox" name="anonymizePlexus">
            <property name="minimum">
             <number>100</number>
            </property>
