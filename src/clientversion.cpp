@@ -13,7 +13,7 @@
  * for both prufusd and prufus-qt, to make it harder for attackers to
  * target servers or GUI users specifically.
  */
-const std::string CLIENT_NAME("Prufus");
+const std::string CLIENT_NAME("Plexus");
 
 /**
  * Client version number
